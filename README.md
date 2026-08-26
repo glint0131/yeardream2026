@@ -28,3 +28,6 @@ git branch -M main
 
 # push
 git push -u origin main
+
+# 이메일 주소 변경
+git config --global user.email "kkc3102@gmail.com"
