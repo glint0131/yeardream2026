@@ -3,21 +3,38 @@
 // describe():test()의 group,describe는 describe를 담을 수 있다
 
 import {divide, minus, multiply, plus} from "@/app/calcModule";
+//describe(설명,테스트 내용)
+describe('사칙연산 통합 테스트(정상,에러)',function(){
+    describe('사칙연산테스트',function (){
+        test('더하기 모듈 테스트',function(){
+            expect(plus(10,30)).toBe(40);
+        });
+        test('빼기 모듈 테스트',function(){
+            expect(minus(40,30)).toBe(10);
+        });
+        test('곱하기 모듈 테스트',function(){
+            expect(multiply(10,30)).toBe(300);
+        });
+        test('나누기 모듈 테스트',function(){
+            expect(divide(4,2)).toBe(2);
+        });
+    })
 
-describe('사칙연산테스트',function (){
-    test('더하기 모듈 테스트',function(){
-        expect(plus(10,30)).toBe(40);
-    });
-    test('빼기 모듈 테스트',function(){
-        expect(minus(40,30)).toBe(10);
-    });
-    test('곱하기 모듈 테스트',function(){
-        expect(multiply(10,30)).toBe(300);
-    });
-    test('나누기 모듈 테스트',function(){
-        expect(divide(4,2)).toBe(2);
-    });
+    describe('사칙연산 에러 테스트',function (){
+        test('a보다b값이 더 클 경우', function (){
+            //throws 사용시 실행함수를 한번 더 감싸준다
+            expect(function(){return minus(10,30)}).toThrow('뺄셈의 값은 0보다 커야 합니다.');
+        });
+        test('b가 0일 경우', function (){
+            expect(function (){return divide(10,0)}).toThrow('0으로 나눌수 없습니다.');
+        });
+    })
+
+
+
 })
+
+
 
 /*
 toBe(): 숫자,문자,불리언 타입의 값에 일치
