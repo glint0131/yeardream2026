@@ -1,0 +1,15 @@
+//next 와 jest를 연동
+const nextJest= require("next/jest");
+
+//여기에 있는 설정파일들을 읽어라(설정파일들은 이 공간에 다 있음)
+const createJestConfig = nextJest({dir:'./'})
+
+const jestConfig = {
+    testEnvironment:'jest-environment-jsdom',
+    moduleNameMapper:{
+        '^@/(.*)$':'<rootDir>/src/$1'
+    // 01_jest/src/에서 @로 시작하고 /가 들어가며
+    }
+
+};
+module.exports = createJestConfig(jestConfig);
