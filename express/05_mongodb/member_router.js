@@ -1,0 +1,34 @@
+const express = require('express');
+const router = express.Router();
+
+//회원가입(/member/join)
+router.post('/join',function(req, res){
+    const param = req.body;
+    res.json({'success':true,'data':param})
+})
+
+//회원리스트 (/member/list,/memember)
+router.get(['/list','/'],function(req, res){
+    res.json({'success':true,'data':'[]'})
+})
+
+//회원정보 상세보기 (/member/get/:id)
+router.get('/get/:id',function(req, res){
+    const {id} = req.params;
+    res.json({'success':true,'data':{'id':id,'msg':'상세보기 완료'}})
+})
+
+//회원정보 수정 (/member/update)
+router.put('/update/:id',function(req, res){
+    const {id} = req.params;
+    const param = req.body;
+    res.json({'success':true,'data':{'id':id,'msg':param}})
+})
+
+//회원 삭제 (/member/delete)
+router.delete('/delete/:id',function(req, res){
+    res.json({'success':true,'data':'회원삭제 완료'})
+})
+
+
+module.exports = router;

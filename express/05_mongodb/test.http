@@ -1,0 +1,38 @@
+#회원등록
+###
+POST http://localhost/member/join
+Content-Type: application/json
+
+{
+  "id":"user",
+  "pw": "1234",
+  "name": "미붕이",
+  "phone": "01028093102"
+}
+###
+#회원목록
+###
+GET http://localhost/member
+
+#회원목록2
+###
+GET http://localhost/member/list
+
+#회원 상세 보기
+###
+GET http://localhost/member/get/admin
+
+###
+#회원 수정
+PUT http://localhost/member/update/miboong
+Content-Type: application/json
+
+{
+  "name": "미온이",
+  "phone":"01076687476"
+}
+
+###
+
+#회원 삭제
+DELETE http://localhost/member/delete/asd
